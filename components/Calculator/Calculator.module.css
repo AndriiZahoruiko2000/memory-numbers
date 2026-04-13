@@ -1,0 +1,30 @@
+.calculator {
+  width: 100%;
+}
+
+.calculator-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.calculator-list-item {
+  min-width: 0;
+}
+
+.calculator-list-item:last-child {
+  grid-column: 2;
+}
+
+@media (max-width: 420px) {
+  .calculator-list {
+    gap: 8px;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 560px) {
+  .calculator-list {
+    gap: 7px;
+  }
+}

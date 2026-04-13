@@ -1,0 +1,156 @@
+.userNumbers {
+  display: grid;
+  gap: 14px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.label {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.counter {
+  color: #4b4d57;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.userNumbers-list {
+  width: 100%;
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border: 2px solid #18191f;
+  border-radius: 8px;
+  background: #f7f8fb;
+  overflow-x: auto;
+}
+
+.userNumbers-item {
+  min-width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 2px solid #18191f;
+  border-radius: 8px;
+  background: #ffffff;
+  font-family: var(--font-geist-mono);
+  font-size: 1.5rem;
+  font-weight: 800;
+  box-shadow: 3px 3px 0 #18191f;
+}
+
+.placeholder {
+  color: #747782;
+  font-weight: 700;
+}
+
+.button-list {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  min-height: 46px;
+  flex: 1 1 0;
+  border: 2px solid #18191f;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #18191f;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 #18191f;
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    background 120ms ease;
+}
+
+.button:hover {
+  background: #ffede8;
+}
+
+.button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 #18191f;
+}
+
+.submit {
+  background: #18a058;
+  color: #ffffff;
+}
+
+.submit:hover {
+  background: #147a4a;
+}
+
+@media (max-width: 420px) {
+  .userNumbers {
+    gap: 10px;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .userNumbers-list {
+    min-height: 56px;
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .userNumbers-item {
+    min-width: 34px;
+    height: 34px;
+    font-size: 1.2rem;
+    box-shadow: 2px 2px 0 #18191f;
+  }
+
+  .button-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .button {
+    min-height: 42px;
+    padding: 8px;
+    font-size: 0.92rem;
+    box-shadow: 2px 2px 0 #18191f;
+  }
+
+  .submit {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 560px) {
+  .userNumbers-list {
+    min-height: 50px;
+  }
+
+  .userNumbers-item {
+    min-width: 30px;
+    height: 30px;
+    font-size: 1.05rem;
+  }
+
+  .button {
+    min-height: 38px;
+  }
+}
