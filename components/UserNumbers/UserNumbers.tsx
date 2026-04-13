@@ -1,7 +1,6 @@
 "use client";
 import { useGameStore } from "@/store/store";
 import css from "./UserNumbers.module.css";
-import iziToast from "izitoast";
 
 const UserNumbers = () => {
   const numbers = useGameStore((s) => s.numbers);
@@ -13,12 +12,13 @@ const UserNumbers = () => {
   const incrementLevel = useGameStore((s) => s.incrementLevel);
   const resetLevel = useGameStore((s) => s.resetLevel);
 
-  const compareNumber = () => {
+  const compareNumber = async () => {
     if (number === numbers.join("")) {
       incrementLevel();
       generateNumber();
       startTimer();
     } else {
+      const { default: iziToast } = await import("izitoast");
       iziToast.error({ message: "Ha-Ha Looser!" });
       resetLevel();
       generateNumber();
