@@ -1,0 +1,127 @@
+.header {
+  width: 100%;
+  min-height: 72px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 16px clamp(16px, 5vw, 72px);
+  border-bottom: 1px solid #d8dee9;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.logo {
+  color: #18191f;
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nav-link,
+.secondary-link,
+.primary-link {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #18191f;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.nav-link {
+  padding: 0 14px;
+}
+
+.nav-link:hover,
+.secondary-link:hover {
+  background: #edf2f7;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.secondary-link,
+.primary-link {
+  padding: 0 16px;
+}
+
+.secondary-link {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+}
+
+.primary-link {
+  border: 1px solid #18191f;
+  background: #18a058;
+  color: #ffffff;
+  box-shadow: 4px 4px 0 #18191f;
+}
+
+.primary-link:hover {
+  background: #147a4a;
+}
+
+.primary-link:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 #18191f;
+}
+
+.nav-link:focus-visible,
+.secondary-link:focus-visible,
+.primary-link:focus-visible,
+.logo:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.28);
+  outline-offset: 3px;
+}
+
+@media (max-width: 820px) {
+  .header {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 14px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 14px 16px;
+  }
+
+  .nav,
+  .actions {
+    width: 100%;
+  }
+
+  .nav-link,
+  .secondary-link,
+  .primary-link {
+    flex: 1;
+    padding-inline: 10px;
+    font-size: 0.92rem;
+  }
+}

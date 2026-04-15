@@ -1,6 +1,7 @@
 "use client";
 import { useGameStore } from "@/store/store";
 import css from "./UserNumbers.module.css";
+import { createResult } from "@/services/gameService";
 
 const UserNumbers = () => {
   const numbers = useGameStore((s) => s.numbers);
@@ -14,6 +15,7 @@ const UserNumbers = () => {
 
   const compareNumber = async () => {
     if (number === numbers.join("")) {
+      createResult({ numberLength: number.length });
       incrementLevel();
       generateNumber();
       startTimer();
@@ -51,7 +53,10 @@ const UserNumbers = () => {
         <button className={css["button"]} onClick={deleteLastNumbers}>
           Delete
         </button>
-        <button className={`${css["button"]} ${css["submit"]}`} onClick={compareNumber}>
+        <button
+          className={`${css["button"]} ${css["submit"]}`}
+          onClick={compareNumber}
+        >
           Submit
         </button>
         <button className={css["button"]} onClick={deleteNumbers}>
