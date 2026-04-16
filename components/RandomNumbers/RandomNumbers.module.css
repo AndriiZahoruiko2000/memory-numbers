@@ -52,6 +52,38 @@
   text-align: center;
 }
 
+.skip-button {
+  min-width: 86px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 2px solid #18191f;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #18191f;
+  box-shadow: 3px 3px 0 #18191f;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    box-shadow 120ms ease,
+    transform 120ms ease;
+}
+
+.skip-button:hover {
+  background: #edf2f7;
+}
+
+.skip-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 #18191f;
+}
+
+.skip-button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.28);
+  outline-offset: 3px;
+}
+
 @media (max-width: 420px) {
   .randomNumbers {
     gap: 16px;
@@ -73,6 +105,12 @@
     width: 100%;
     padding: 9px 10px;
   }
+
+  .skip-button {
+    width: 100%;
+    min-height: 42px;
+    box-shadow: 2px 2px 0 #18191f;
+  }
 }
 
 @media (max-height: 700px) and (max-width: 560px) {
@@ -88,5 +126,9 @@
 
   .meta span {
     padding: 8px 10px;
+  }
+
+  .skip-button {
+    min-height: 38px;
   }
 }

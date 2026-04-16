@@ -15,3 +15,8 @@ export interface User {
   email: string;
   result: number;
 }
+
+export interface VerifyUser {
+  email: string;
+  verificationCode: string;
+}

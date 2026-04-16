@@ -1,0 +1,168 @@
+.page {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    linear-gradient(135deg, rgba(24, 160, 88, 0.16), transparent 28%),
+    linear-gradient(315deg, rgba(239, 78, 70, 0.14), transparent 30%), #f7f8fb;
+  color: #18191f;
+}
+
+.game {
+  width: min(100%, 720px);
+  min-height: min(720px, calc(100dvh - 48px));
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 28px;
+  padding: 28px;
+  border: 2px solid #18191f;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 10px 10px 0 #18191f;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 22px;
+  border-bottom: 2px solid #18191f;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #147a4a;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.95;
+}
+
+.level {
+  min-width: 108px;
+  min-height: 92px;
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  border: 2px solid #18191f;
+  border-radius: 8px;
+  background: #ffd84d;
+  box-shadow: 5px 5px 0 #18191f;
+}
+
+.level-label {
+  color: #4b4d57;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.level strong {
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.content {
+  display: grid;
+  place-items: center;
+}
+
+.answer {
+  width: min(100%, 420px);
+  display: grid;
+  gap: 22px;
+}
+
+@media (max-width: 560px) {
+  .page {
+    padding: 14px;
+  }
+
+  .game {
+    min-height: calc(100dvh - 28px);
+    padding: 18px;
+    gap: 20px;
+    box-shadow: 6px 6px 0 #18191f;
+  }
+
+  .header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .level {
+    width: 100%;
+    min-height: 76px;
+    grid-template-columns: 1fr auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .page {
+    align-items: stretch;
+    padding: 10px;
+  }
+
+  .game {
+    min-height: calc(100dvh - 20px);
+    gap: 14px;
+    padding: 14px;
+    box-shadow: none;
+  }
+
+  .header {
+    gap: 12px;
+    padding-bottom: 14px;
+  }
+
+  .eyebrow {
+    margin-bottom: 6px;
+    font-size: 0.72rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .level {
+    min-height: 58px;
+    padding: 10px 12px;
+    box-shadow: 3px 3px 0 #18191f;
+  }
+
+  .level strong {
+    font-size: 1.8rem;
+  }
+
+  .content {
+    align-content: center;
+  }
+
+  .answer {
+    gap: 14px;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 560px) {
+  .game {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .header {
+    padding-bottom: 10px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+}

@@ -9,24 +9,19 @@ interface AuthStoreResponse {
   clearUser: () => void;
 }
 
-export const useAuthStore = create<AuthStoreResponse>()(
-  persist(
-    (setStore) => {
-      return {
-        user: null,
-        isAuth: false,
-        setUser: (newUser: User) => {
-          setStore((s) => {
-            return { user: newUser, isAuth: true };
-          });
-        },
-        clearUser: () => {
-          setStore((s) => {
-            return { user: null, isAuth: false };
-          });
-        },
-      };
+export const useAuthStore = create<AuthStoreResponse>()((setStore) => {
+  return {
+    user: null,
+    isAuth: false,
+    setUser: (newUser: User) => {
+      setStore((s) => {
+        return { user: newUser, isAuth: true };
+      });
     },
-    { name: "Auth" },
-  ),
-);
+    clearUser: () => {
+      setStore((s) => {
+        return { user: null, isAuth: false };
+      });
+    },
+  };
+});

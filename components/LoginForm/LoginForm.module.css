@@ -1,10 +1,36 @@
 .loginForm {
-  width: min(100%, 420px);
-  padding: 32px;
-  border: 1px solid #d8dee9;
+  width: min(100%, 460px);
+  padding: 34px;
+  border: 2px solid #18191f;
   border-radius: 8px;
   background: #ffffff;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  box-shadow: 10px 10px 0 #18191f;
+}
+
+.header {
+  margin-bottom: 26px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #147a4a;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.header h1 {
+  margin: 0;
+  color: #18191f;
+  font-size: clamp(2rem, 5vw, 2.7rem);
+  line-height: 1.05;
+}
+
+.header p:not(.eyebrow) {
+  margin: 16px 0 0;
+  color: #4b5563;
+  line-height: 1.6;
 }
 
 .loginForm form {
@@ -13,9 +39,16 @@
   gap: 16px;
 }
 
+.loginForm label {
+  display: grid;
+  gap: 8px;
+  color: #18191f;
+  font-weight: 800;
+}
+
 .loginForm input {
   width: 100%;
-  min-height: 48px;
+  min-height: 50px;
   padding: 0 14px;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
@@ -36,35 +69,59 @@
 }
 
 .loginForm button {
-  min-height: 48px;
-  margin-top: 4px;
-  border: 0;
+  min-height: 52px;
+  margin-top: 6px;
+  border: 2px solid #18191f;
   border-radius: 8px;
+  background: #18a058;
   color: #ffffff;
+  box-shadow: 5px 5px 0 #18191f;
   font: inherit;
-  font-weight: 700;
+  font-weight: 900;
   cursor: pointer;
-  background: #2563eb;
-  transition: background-color 160ms ease, transform 160ms ease,
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease,
     box-shadow 160ms ease;
 }
 
 .loginForm button:hover {
-  background: #1d4ed8;
-  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.24);
+  background: #147a4a;
 }
 
 .loginForm button:active {
-  transform: translateY(1px);
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 #18191f;
 }
 
-.loginForm button:focus-visible {
+.loginForm button:focus-visible,
+.footer a:focus-visible {
   outline: 3px solid rgba(37, 99, 235, 0.28);
-  outline-offset: 2px;
+  outline-offset: 3px;
+}
+
+.footer {
+  margin: 24px 0 0;
+  color: #4b5563;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.footer a {
+  color: #147a4a;
+  font-weight: 900;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 @media (max-width: 480px) {
   .loginForm {
-    padding: 24px;
+    padding: 26px 18px;
+    box-shadow: 6px 6px 0 #18191f;
+  }
+
+  .loginForm button {
+    box-shadow: 4px 4px 0 #18191f;
   }
 }

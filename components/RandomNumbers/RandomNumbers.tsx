@@ -3,10 +3,15 @@ import { useEffect, useState } from "react";
 import css from "./RandomNumbers.module.css";
 import { useGameStore } from "@/store/store";
 
-const RandomNumbers = () => {
+interface RandomNumbersProps {
+  isPiPage?: boolean;
+}
+
+const RandomNumbers = ({ isPiPage }: RandomNumbersProps) => {
   const [counter, setCounter] = useState(10);
 
   const generateNumber = useGameStore((s) => s.generateNumber);
+  const setPi = useGameStore((s) => s.setPi);
   const number = useGameStore((s) => s.number);
   const level = useGameStore((s) => s.level);
   const startTimer = useGameStore((s) => s.startTimer);
@@ -30,7 +35,12 @@ const RandomNumbers = () => {
   }, [counter, stopTimer]);
 
   useEffect(() => {
-    generateNumber();
+    if (isPiPage) {
+      setPi();
+    } else {
+      generateNumber();
+    }
+
     startTimer();
   }, [generateNumber, startTimer]);
 
@@ -41,6 +51,13 @@ const RandomNumbers = () => {
       <div className={css["meta"]}>
         <span>Рівень {level}</span>
         <span>{counter} сек</span>
+        <button
+          className={css["skip-button"]}
+          onClick={stopTimer}
+          type="button"
+        >
+          Скіп
+        </button>
       </div>
     </section>
   );

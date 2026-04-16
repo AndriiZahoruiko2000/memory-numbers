@@ -4,14 +4,17 @@ import css from "./Header.module.css";
 import { useAuthStore } from "@/store/auth-store";
 import { useRouter } from "next/navigation";
 import { logout } from "@/services/authService";
+import { useGameStore } from "@/store/store";
 
 const Header = () => {
   const router = useRouter();
   const clearUser = useAuthStore((s) => s.clearUser);
+  const resetLevel = useGameStore((s) => s.resetLevel);
 
   const isAuth = useAuthStore((s) => s.isAuth);
   const handleLogoutClick = () => {
     clearUser();
+    resetLevel();
     logout();
     router.push("/");
   };
@@ -26,18 +29,25 @@ const Header = () => {
         <Link className={css["nav-link"]} href="/">
           Головна
         </Link>
-        <Link className={css["nav-link"]} href="/game/memories">
-          Memory
-        </Link>
-        <Link className={css["nav-link"]} href="/game/pi">
-          Pi
-        </Link>
+        {isAuth && (
+          <>
+            <Link className={css["nav-link"]} href="/game/memories">
+              Memory
+            </Link>
+            <Link className={css["nav-link"]} href="/game/pi">
+              Pi
+            </Link>
+          </>
+        )}
+
         <Link className={css["nav-link"]} href="/leader-board">
           Рейтинг
         </Link>
-        <Link className={css["nav-link"]} href="/profile">
-          Профіль
-        </Link>
+        {isAuth && (
+          <Link className={css["nav-link"]} href="/profile">
+            Профіль
+          </Link>
+        )}
       </nav>
 
       <div className={css["actions"]}>
@@ -51,7 +61,15 @@ const Header = () => {
             </Link>
           </>
         )}
-        {isAuth && <button onClick={handleLogoutClick}>Logout</button>}
+        {isAuth && (
+          <button
+            className={css["logout-button"]}
+            onClick={handleLogoutClick}
+            type="button"
+          >
+            Logout
+          </button>
+        )}
       </div>
     </header>
   );

@@ -1,0 +1,135 @@
+.page {
+  min-height: calc(100vh - 72px);
+  display: grid;
+  place-items: center;
+  padding: 56px 16px;
+  background:
+    linear-gradient(135deg, rgba(239, 78, 70, 0.12), transparent 34%),
+    linear-gradient(315deg, rgba(24, 160, 88, 0.1), transparent 36%),
+    #f7f8fb;
+}
+
+.error {
+  width: min(100%, 620px);
+  padding: 38px;
+  border: 2px solid #18191f;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 10px 10px 0 #18191f;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #b42318;
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.error h1 {
+  margin: 0;
+  color: #18191f;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  line-height: 1;
+}
+
+.description {
+  margin: 20px 0 0;
+  color: #4b5563;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.code {
+  overflow-wrap: anywhere;
+  margin: 18px 0 0;
+  padding: 12px 14px;
+  border: 1px solid #d8dee9;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #64748b;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.9rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  border: 2px solid #18191f;
+  border-radius: 8px;
+  color: #18191f;
+  font: inherit;
+  font-weight: 900;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.primaryButton {
+  background: #18a058;
+  color: #ffffff;
+  box-shadow: 5px 5px 0 #18191f;
+}
+
+.primaryButton:hover {
+  background: #147a4a;
+}
+
+.primaryButton:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 #18191f;
+}
+
+.secondaryButton {
+  background: #ffffff;
+}
+
+.secondaryButton:hover {
+  background: #edf2f7;
+}
+
+.secondaryButton:active {
+  transform: translateY(1px);
+}
+
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.28);
+  outline-offset: 3px;
+}
+
+@media (max-width: 520px) {
+  .error {
+    padding: 28px 18px;
+    box-shadow: 6px 6px 0 #18191f;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .primaryButton {
+    box-shadow: 4px 4px 0 #18191f;
+  }
+}

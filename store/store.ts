@@ -15,6 +15,7 @@ interface GameStore {
   addNumber: (newNumber: number) => void;
   deleteNumbers: () => void;
   deleteLastNumber: () => void;
+  setPi: () => void;
 }
 
 export const useGameStore = create<GameStore>()(
@@ -25,6 +26,12 @@ export const useGameStore = create<GameStore>()(
         number: "0",
         isActiveTimer: true,
         level: 1,
+
+        setPi: () => {
+          setStore((s) => {
+            return { number: (Math.PI * 10 ** (s.level - 1)).toFixed(0) };
+          });
+        },
 
         startTimer: () => {
           setStore(() => {

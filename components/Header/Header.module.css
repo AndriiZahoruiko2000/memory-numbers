@@ -30,7 +30,8 @@
 
 .nav-link,
 .secondary-link,
-.primary-link {
+.primary-link,
+.logout-button {
   min-height: 40px;
   display: inline-flex;
   align-items: center;
@@ -87,9 +88,28 @@
   box-shadow: 0 0 0 #18191f;
 }
 
+.logout-button {
+  padding: 0 16px;
+  border: 1px solid #18191f;
+  background: #ffffff;
+  box-shadow: 4px 4px 0 #18191f;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background: #fff1f0;
+  color: #b42318;
+}
+
+.logout-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 #18191f;
+}
+
 .nav-link:focus-visible,
 .secondary-link:focus-visible,
 .primary-link:focus-visible,
+.logout-button:focus-visible,
 .logo:focus-visible {
   outline: 3px solid rgba(37, 99, 235, 0.28);
   outline-offset: 3px;
@@ -119,7 +139,8 @@
 
   .nav-link,
   .secondary-link,
-  .primary-link {
+  .primary-link,
+  .logout-button {
     flex: 1;
     padding-inline: 10px;
     font-size: 0.92rem;

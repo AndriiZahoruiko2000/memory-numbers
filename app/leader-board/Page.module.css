@@ -1,0 +1,7 @@
+.page {
+  min-height: calc(100vh - 72px);
+  background:
+    linear-gradient(135deg, rgba(24, 160, 88, 0.12), transparent 34%),
+    linear-gradient(315deg, rgba(239, 78, 70, 0.1), transparent 36%),
+    #f7f8fb;
+}

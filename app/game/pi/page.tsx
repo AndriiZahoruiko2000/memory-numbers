@@ -1,7 +1,7 @@
-import css from "./Page.module.css";
+import PiClientPage from "./PiClientPage";
 
 const Page = () => {
-  return <div className={css["page"]}>Page</div>;
+  return <PiClientPage />;
 };
 
 export default Page;

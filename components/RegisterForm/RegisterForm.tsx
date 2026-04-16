@@ -1,12 +1,23 @@
 "use client";
-import { useAuthStore } from "@/store/auth-store";
+
 import css from "./RegisterForm.module.css";
-import { useRouter } from "next/navigation";
+
 import { register } from "@/services/authService";
+import Link from "next/link";
+import { useState } from "react";
+import VerificationModal from "../VerificationModal/VerificationModal";
 
 const RegisterForm = () => {
-  const router = useRouter();
-  const setUser = useAuthStore((s) => s.setUser);
+  const [isOpenModal, setIsOpenModal] = useState(false);
+
+  const showModal = () => {
+    setIsOpenModal(true);
+  };
+
+  const hideModal = () => {
+    setIsOpenModal(false);
+  };
+
   const handleSubmit = async (formData: FormData) => {
     const userData = {
       userName: formData.get("userName") as string,
@@ -14,20 +25,68 @@ const RegisterForm = () => {
       password: formData.get("password") as string,
     };
 
-    const response = await register(userData);
-    setUser(response);
-    router.push("/");
+    await register(userData);
+    showModal();
   };
 
   return (
-    <div className={css["registerForm"]}>
+    <section className={css["registerForm"]} aria-labelledby="register-title">
+      <div className={css["header"]}>
+        <p className={css["eyebrow"]}>Реєстрація</p>
+        <h1 id="register-title">Створи акаунт гравця</h1>
+        <p>Зберігай найкращі спроби та потрапляй у рейтинг.</p>
+      </div>
+
       <form action={handleSubmit}>
-        <input type="text" name="userName" />
-        <input type="email" name="email" />
-        <input type="password" name="password" />
-        <button type="submit">Register</button>
+        <label>
+          Ім&apos;я
+          <input
+            type="text"
+            name="userName"
+            placeholder="Твоє ім'я"
+            autoComplete="username"
+            required
+          />
+        </label>
+
+        <label>
+          Email
+          <input
+            type="email"
+            name="email"
+            placeholder="name@example.com"
+            autoComplete="email"
+            required
+          />
+        </label>
+
+        <label>
+          Пароль
+          <input
+            type="password"
+            name="password"
+            placeholder="Придумай пароль"
+            autoComplete="new-password"
+            required
+          />
+        </label>
+
+        <button type="submit">Зареєструватись</button>
       </form>
-    </div>
+      <button
+        className={css["verifyButton"]}
+        onClick={showModal}
+        type="button"
+      >
+        Підтвердити пошту
+      </button>
+
+      <p className={css["footer"]}>
+        Вже маєш акаунт? <Link href="/auth/login">Увійти</Link>
+      </p>
+
+      {isOpenModal && <VerificationModal closeModal={hideModal} />}
+    </section>
   );
 };
 

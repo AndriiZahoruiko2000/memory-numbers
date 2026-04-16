@@ -1,4 +1,4 @@
-import { LoginBody, RegisterBody, User } from "@/types/auth";
+import { LoginBody, RegisterBody, User, VerifyUser } from "@/types/auth";
 import { serverAPI } from "./serviceConfig";
 
 export const login = async (body: LoginBody) => {
@@ -12,7 +12,7 @@ export const register = async (body: RegisterBody) => {
 };
 
 export const logout = async () => {
-  const response = await serverAPI.post("/auth/register");
+  const response = await serverAPI.post("/auth/logout");
   return response.data;
 };
 
@@ -23,5 +23,10 @@ export const refresh = async () => {
 
 export const getMe = async () => {
   const response = await serverAPI.get<User>("/auth/getMe");
+  return response.data;
+};
+
+export const verifyMe = async (body: VerifyUser) => {
+  const response = await serverAPI.post("/auth/verifyMe", body);
   return response.data;
 };

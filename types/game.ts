@@ -5,6 +5,7 @@ export interface UpdateGame {
 export interface GameResult {
   userId: string;
   numberLength: number;
+  createdAt: string;
 }
 
 export interface GameResultBody {

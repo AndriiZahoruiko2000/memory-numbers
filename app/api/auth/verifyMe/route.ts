@@ -1,20 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { globalAPI } from "../../globalServer";
-import { cookies } from "next/headers";
 import { AxiosError } from "axios";
 
-export const POST = async () => {
+export const POST = async (req: NextRequest) => {
   try {
-    const cookieStore = await cookies();
-    const response = await globalAPI.post("/auth/logout", null, {
-      headers: {
-        Cookie: cookieStore.toString(),
-      },
-    });
-
-    cookieStore.delete("refreshToken");
-    cookieStore.delete("accessToken");
-
+    const body = await req.json();
+    const response = await globalAPI.post("/auth/verifyMe", body);
     return NextResponse.json(response.data);
   } catch (error) {
     const err = error as AxiosError<{ message: string }>;
