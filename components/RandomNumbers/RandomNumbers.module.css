@@ -84,16 +84,70 @@
   outline-offset: 3px;
 }
 
+@media (max-width: 768px) {
+  .randomNumbers {
+    width: min(100%, 560px);
+    gap: 20px;
+    padding: 28px 12px;
+  }
+
+  .label {
+    font-size: 0.84rem;
+  }
+
+  .number {
+    min-height: 132px;
+    padding: 20px;
+    font-size: clamp(2.75rem, 10vw, 5.5rem);
+    box-shadow: 6px 6px 0 #18a058;
+  }
+
+  .meta {
+    width: min(100%, 380px);
+    gap: 10px;
+  }
+
+  .meta span {
+    min-width: 96px;
+  }
+}
+
+@media (max-width: 560px) {
+  .randomNumbers {
+    gap: 18px;
+    padding: 22px 0;
+  }
+
+  .number {
+    min-height: 120px;
+    font-size: clamp(2.4rem, 14vw, 4.5rem);
+  }
+
+  .meta {
+    width: 100%;
+  }
+
+  .meta span,
+  .skip-button {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
 @media (max-width: 420px) {
   .randomNumbers {
     gap: 16px;
     padding: 18px 0;
   }
 
+  .label {
+    font-size: 0.76rem;
+  }
+
   .number {
     min-height: 112px;
     padding: 16px;
-    font-size: clamp(2.5rem, 15vw, 4.2rem);
+    font-size: clamp(2.25rem, 15vw, 4.2rem);
     box-shadow: 5px 5px 0 #18a058;
   }
 
